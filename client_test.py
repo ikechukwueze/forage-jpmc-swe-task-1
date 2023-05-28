@@ -87,6 +87,13 @@ class ClientTest(unittest.TestCase):
     price_b = random.uniform(100, 105)
     expected_return_value = price_a / price_b
     self.assertEqual(getRatio(price_a, price_b), expected_return_value)
+  
+
+  def test_getRatio_calculateRatioPriceAEqualsZeroAndPriceBGreaterThanZero(self):
+    price_a = 0.0
+    price_b = random.uniform(100, 105)
+    self.assertEqual(getRatio(price_a, price_b), 0.0)
+
 
 if __name__ == '__main__':
     unittest.main()
