@@ -14,10 +14,10 @@ class ClientTest(unittest.TestCase):
       expected_bid_price = float(quote['top_bid']['price'])
       expected_ask_price = float(quote['top_ask']['price'])
       expected_price = (expected_bid_price + expected_ask_price)/2
-      expected_value = (expected_stock, expected_bid_price, expected_ask_price, expected_price)
+      expected_return_value = (expected_stock, expected_bid_price, expected_ask_price, expected_price)
 
       # assert returned value matches expected value
-      self.assertEqual(getDataPoint(quote), expected_value)
+      self.assertEqual(getDataPoint(quote), expected_return_value)
 
   def test_getDataPoint_calculatePriceBidGreaterThanAsk(self):
     quotes = [
