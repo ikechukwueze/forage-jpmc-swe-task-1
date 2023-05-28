@@ -56,7 +56,7 @@ class ClientTest(unittest.TestCase):
       # assert returned value matches expected value
       self.assertEqual(getDataPoint(quote), expected_return_value)
   
-  
+
   def test_getDataPoint_calculatePriceAskEqualToBid(self):
     quotes = [
       {'top_ask': {'price': 120.48, 'size': 109}, 'timestamp': '2019-02-11 22:06:30.572453', 'top_bid': {'price': 120.48, 'size': 36}, 'id': '0.109974697771', 'stock': 'ABC'},
@@ -80,7 +80,13 @@ class ClientTest(unittest.TestCase):
     price_b = random.uniform(95, 99)
     expected_return_value = price_a / price_b
     self.assertEqual(getRatio(price_a, price_b), expected_return_value)
+  
 
+  def test_getRatio_calculateRatioPriceBGreaterThanPriceA(self):
+    price_a = random.uniform(95, 99)
+    price_b = random.uniform(100, 105)
+    expected_return_value = price_a / price_b
+    self.assertEqual(getRatio(price_a, price_b), expected_return_value)
 
 if __name__ == '__main__':
     unittest.main()
